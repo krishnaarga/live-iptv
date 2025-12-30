@@ -3,7 +3,9 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>IP-TV PLAYER :: KRISHNA</title>
+    <title>IP-TV STREAMING :: KRISHNA</title>
+    <!-- Inline SVG favicon (small square with play triangle) -->
+    <link rel="icon" href="./logo.png" type="image/png" sizes="16x16">
     <script src="https://cdn.jsdelivr.net/npm/hls.js@latest"></script>
     <style>
         :root {
@@ -18,11 +20,12 @@
 
         /* Sidebar Layout */
         .sidebar { width: 350px; background: var(--sidebar-bg); display: flex; flex-direction: column; border-right: 1px solid #222; }
-        .sidebar-header { padding: 5px 5px 0px 5px; border-bottom: 1px solid #222; }
-        .logo { font-size: 1.1rem; font-weight: 800; color: var(--accent); margin-bottom: 5px; display: block; }
+        .sidebar-header { padding: 10px 10px 0px 10px; border-bottom: 1px solid #222; }
+        .logo { font-size: 1.1rem; font-weight: 800; color: var(--accent); margin-bottom: 8px; display: flex; align-items: center; gap: 8px; }
+        .logo-img { height: 20px; }
 
         /* Search Box */
-        .search-box { width: 100%; padding: 10px; background: #222; border: 1px solid #333; color: white; border-radius: 5px; box-sizing: border-box; margin-bottom: 5px; }
+        .search-box { width: 100%; padding: 10px; background: #222; border: 1px solid #333; color: white; border-radius: 5px; box-sizing: border-box; margin-bottom: 8px; }
 
         /* Filters */
         .filter-group { display: flex; flex-wrap: wrap; gap: 5px; margin-bottom: 5px; }
@@ -30,7 +33,7 @@
         .filter-btn.active { background: var(--accent); color: white; }
 
         /* Grid */
-        .playlist-scroll { flex: 1; overflow-y: auto; padding: 5px; display: grid; grid-template-columns: repeat(2, 1fr); gap: 8px; align-content: start; }
+        .playlist-scroll { flex: 1; overflow-y: auto; padding: 5px 10px 10px 10px; display: grid; grid-template-columns: repeat(2, 1fr); gap: 8px; align-content: start; }
 
         .channel-card { cursor: pointer; background: var(--card-bg); border-radius: 5px; overflow: hidden; transition: 0.2s; border: 2px solid transparent; position: relative; height: 115px;}
         .channel-card:hover { border-color: var(--accent); transform: translateY(-3px); }
@@ -58,7 +61,10 @@
 <body>
     <div class="sidebar">
         <div class="sidebar-header">
-            <span class="logo">IP-TV PLAYER</span>
+            <div class="logo">
+                <img src="./logo.png" alt="logo" class="logo-img">
+                <span>IP-TV STREAMING</span>
+            </div>
             <input type="text" id="search" class="search-box" placeholder="Search channels..." onkeyup="handleFilters()">
 
             <div class="filter-group" id="lang-filters">
